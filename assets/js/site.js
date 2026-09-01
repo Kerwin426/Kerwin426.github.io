@@ -68,7 +68,7 @@
     ];
 
     try {
-      new window.jsVectorMap({
+      const travelMap = new window.jsVectorMap({
         selector: '#travel-map',
         map: 'world',
         backgroundColor: 'transparent',
@@ -90,6 +90,21 @@
           if (place) tooltip.text(`${place.name} — ${place.note}`);
         }
       });
+
+      let resizeFrame = 0;
+      const resizeMap = () => {
+        window.cancelAnimationFrame(resizeFrame);
+        resizeFrame = window.requestAnimationFrame(() => travelMap.updateSize());
+      };
+
+      if ('ResizeObserver' in window) {
+        const mapResizeObserver = new ResizeObserver(resizeMap);
+        mapResizeObserver.observe(mapElement);
+      } else {
+        window.addEventListener('resize', resizeMap, { passive: true });
+      }
+
+      resizeMap();
       mapElement.classList.add('is-ready');
     } catch (_) {
       mapElement.classList.add('has-error');
