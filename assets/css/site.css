@@ -365,6 +365,52 @@ h1 {
   font-weight: 640;
 }
 
+.news-row[hidden] {
+  display: none;
+}
+
+.news-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.7rem;
+}
+
+.news-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0.25rem 0;
+  background: transparent;
+  color: var(--blue);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.news-toggle:hover,
+.news-toggle:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+.news-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition: transform 180ms ease;
+}
+
+.news-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
 .publication-with-visual {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);

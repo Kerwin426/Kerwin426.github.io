@@ -56,6 +56,47 @@
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  document.querySelectorAll('[data-news-list]').forEach((list, listIndex) => {
+    const rows = Array.from(list.querySelectorAll('.news-row'));
+    const visibleItems = Number.parseInt(list.dataset.visibleItems || '3', 10);
+    if (rows.length <= visibleItems) return;
+
+    const listId = list.id || `news-list-${listIndex + 1}`;
+    list.id = listId;
+
+    const actions = document.createElement('div');
+    actions.className = 'news-actions';
+
+    const button = document.createElement('button');
+    button.className = 'news-toggle';
+    button.type = 'button';
+    button.setAttribute('aria-controls', listId);
+    button.setAttribute('aria-expanded', 'false');
+
+    const buttonLabel = document.createElement('span');
+    const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    chevron.setAttribute('viewBox', '0 0 24 24');
+    chevron.setAttribute('aria-hidden', 'true');
+    chevron.innerHTML = '<path d="m7 10 5 5 5-5" />';
+    button.append(buttonLabel, chevron);
+    actions.append(button);
+    list.insertAdjacentElement('afterend', actions);
+
+    const updateNews = (expanded) => {
+      rows.slice(visibleItems).forEach((row) => { row.hidden = !expanded; });
+      button.setAttribute('aria-expanded', String(expanded));
+      buttonLabel.textContent = expanded
+        ? list.dataset.showLessLabel
+        : list.dataset.viewAllLabel.replace('{count}', String(rows.length));
+    };
+
+    button.addEventListener('click', () => {
+      updateNews(button.getAttribute('aria-expanded') !== 'true');
+    });
+
+    updateNews(false);
+  });
+
   const mapElement = document.querySelector('#travel-map');
   if (mapElement && typeof window.jsVectorMap === 'function') {
     const zh = mapElement.dataset.mapLanguage === 'zh';
