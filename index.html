@@ -31,6 +31,7 @@
     <script>
       try { document.documentElement.dataset.theme = localStorage.getItem('site-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) { document.documentElement.dataset.theme = 'light'; }
     </script>
+    <link rel="stylesheet" href="/assets/vendor/jsvectormap/jsvectormap.css" />
     <link rel="stylesheet" href="/assets/css/site.css" />
     <script type="application/ld+json">
       {
@@ -65,10 +66,11 @@
           <span>Kaiming Gu</span>
         </a>
         <nav class="site-nav" data-site-nav aria-label="Primary navigation">
-          <a href="#research">Research</a>
+          <a href="#news">News</a>
           <a href="#selected-publication">Publication</a>
-          <a href="#background">Background</a>
-          <a href="#contact">Contact</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#footprints">Footprints</a>
           <button class="nav-theme-toggle mobile-theme-toggle" type="button" data-theme-toggle data-dark-label="Switch to dark mode" data-light-label="Switch to light mode" aria-label="Switch to dark mode" aria-pressed="false">
             <span>Appearance</span><span data-theme-label>Dark</span>
           </button>
@@ -111,51 +113,94 @@
         </div>
       </section>
 
+      <section class="section section-news" id="news">
+        <div class="container editorial-grid">
+          <header class="section-heading"><span class="section-index">01</span><h2>News</h2></header>
+          <div class="news-list" aria-label="Recent updates">
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+              <time datetime="2025-09">Sep 2025</time>
+              <p><a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">G2MBCF</a> appeared in Volume 159 of <em>Data &amp; Knowledge Engineering</em>.</p>
+            </article>
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5M22 10v6"/></svg>
+              <time datetime="2025-09">Sep 2025</time>
+              <p>Started the M.S. program in Electronic Information at SCUT.</p>
+            </article>
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+              <time datetime="2025-06">Jun 2025</time>
+              <p>Received the B.E. degree in Artificial Intelligence from SCUT.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-publication" id="selected-publication">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">01</span><h2>Selected publication</h2></header>
-          <article class="publication-entry">
-            <p class="publication-meta">2025 · Journal article · Data &amp; Knowledge Engineering</p>
-            <h3>G2MBCF: Enhanced Named Entity Recognition for Sensitive Entities Identification</h3>
-            <p class="authors">Weibin Tian, <strong>Kaiming Gu</strong>, Shihui Xiao, Junbo Zhang, Wei Cui</p>
-            <p class="venue">Volume 159, Article 102444</p>
-            <nav class="text-links" aria-label="Publication links">
-              <a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a>
-              <a href="https://dblp.org/rec/journals/dke/TianGXZC25.html" target="_blank" rel="noreferrer">DBLP <span aria-hidden="true">↗</span></a>
-              <a href="/publications/">Details</a>
-            </nav>
+          <header class="section-heading"><span class="section-index">02</span><h2>Selected publication</h2></header>
+          <article class="publication-entry publication-with-visual">
+            <figure class="publication-figure">
+              <a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer" aria-label="Open G2MBCF on the publisher website">
+                <img src="/assets/img/g2mbcf-figure2.jpg" alt="G2MBCF workflow from unstructured text and a knowledge graph to an entity-relation matrix and sensitive entity identification" width="715" height="415" loading="lazy" />
+              </a>
+              <figcaption>Figure 2 · Method overview</figcaption>
+            </figure>
+            <div class="publication-copy">
+              <p class="publication-meta">2025 · Journal article · Data &amp; Knowledge Engineering</p>
+              <h3>G2MBCF: Enhanced Named Entity Recognition for Sensitive Entities Identification</h3>
+              <p class="authors">Weibin Tian, <strong>Kaiming Gu</strong>, Shihui Xiao, Junbo Zhang, Wei Cui</p>
+              <p class="venue">Volume 159, Article 102444</p>
+              <nav class="text-links" aria-label="Publication links">
+                <a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a>
+                <a href="https://dblp.org/rec/journals/dke/TianGXZC25.html" target="_blank" rel="noreferrer">DBLP <span aria-hidden="true">↗</span></a>
+                <a href="/publications/">Details</a>
+              </nav>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="section" id="research">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">02</span><h2>Research focus</h2></header>
-          <div>
-            <p class="section-intro">My interests lie at the intersection of multimodal reasoning and generative vision.</p>
-            <dl class="research-list">
-              <div><dt>Multimodal reasoning</dt><dd>Aligning language with spatial and local visual structure.</dd></div>
-              <div><dt>Generative image editing</dt><dd>Inferring what a selected image region should contain.</dd></div>
-              <div><dt>Controllable generation</dt><dd>Improving the reliability of generated results through explicit feedback.</dd></div>
-            </dl>
+          <header class="section-heading"><span class="section-index">03</span><h2>Research focus</h2></header>
+          <div class="research-summary">
+            <p class="section-intro">I study how multimodal models connect language with local visual intent and spatial structure for controllable image generation and editing.</p>
+            <p class="interest-line"><span>Interests</span> Multimodal LLMs · AIGC · Generative image editing</p>
             <p class="methods-line"><span>Methods &amp; tools</span> Python · PyTorch · Diffusers · LoRA</p>
           </div>
         </div>
       </section>
 
-      <section class="section" id="background">
+      <section class="section" id="experience">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">03</span><h2>Background</h2></header>
-          <div class="education-list">
-            <article class="education-row"><div><h3>M.S. in Electronic Information</h3><p>School of Future Technology, South China University of Technology</p></div><time>2025 — Present</time></article>
-            <article class="education-row"><div><h3>B.E. in Artificial Intelligence</h3><p>School of Future Technology, South China University of Technology</p></div><time>2021 — 2025</time></article>
+          <header class="section-heading"><span class="section-index">04</span><h2>Experience</h2></header>
+          <div class="experience-list">
+            <article class="experience-row"><img src="/assets/img/scut-emblem.png" alt="" width="42" height="42" loading="lazy" /><div><h3>M.S. in Electronic Information</h3><p>School of Future Technology, South China University of Technology</p></div><time>2025 — Present</time></article>
+            <article class="experience-row"><img src="/assets/img/scut-emblem.png" alt="" width="42" height="42" loading="lazy" /><div><h3>B.E. in Artificial Intelligence</h3><p>School of Future Technology, South China University of Technology</p></div><time>2021 — 2025</time></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-footprints" id="footprints">
+        <div class="container editorial-grid">
+          <header class="section-heading"><span class="section-index">05</span><h2>Footprints</h2></header>
+          <div>
+            <p class="section-intro">A small map of places that have shaped my study and travels. I will keep adding new stops along the way.</p>
+            <div class="travel-map-shell">
+              <div class="travel-map" id="travel-map" data-map-language="en" data-map-fallback="World map unavailable; see the location below." aria-hidden="true"></div>
+              <noscript><p class="map-fallback">The interactive map requires JavaScript; the location is also listed below.</p></noscript>
+            </div>
+            <ul class="location-list" aria-label="Mapped places">
+              <li><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Guangzhou, China</strong><small>Current base · 23.1291° N, 113.2644° E</small></span></li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="section" id="contact">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">04</span><h2>Contact</h2></header>
+          <header class="section-heading"><span class="section-index">06</span><h2>Contact</h2></header>
           <div class="contact-copy">
             <p>I welcome conversations about multimodal learning, generative vision, and research collaboration.</p>
             <a class="email-link" href="mailto:gukaiming@mail.scut.edu.cn">gukaiming@mail.scut.edu.cn</a>
@@ -170,6 +215,8 @@
         <p><a href="mailto:gukaiming@mail.scut.edu.cn">gukaiming@mail.scut.edu.cn</a></p>
       </div>
     </footer>
+    <script src="/assets/vendor/jsvectormap/jsvectormap.min.js" defer></script>
+    <script src="/assets/vendor/jsvectormap/world.js" defer></script>
     <script src="/assets/js/site.js" defer></script>
   </body>
 </html>

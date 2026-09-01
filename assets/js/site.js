@@ -55,4 +55,44 @@
 
   const year = document.querySelector('[data-current-year]');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  const mapElement = document.querySelector('#travel-map');
+  if (mapElement && typeof window.jsVectorMap === 'function') {
+    const zh = mapElement.dataset.mapLanguage === 'zh';
+    const places = [
+      {
+        name: zh ? '中国广州' : 'Guangzhou, China',
+        coords: [23.1291, 113.2644],
+        note: zh ? '现居城市 · 北纬 23.1291°，东经 113.2644°' : 'Current base · 23.1291° N, 113.2644° E'
+      }
+    ];
+
+    try {
+      new window.jsVectorMap({
+        selector: '#travel-map',
+        map: 'world',
+        backgroundColor: 'transparent',
+        draggable: true,
+        zoomButtons: true,
+        zoomOnScroll: false,
+        showTooltip: true,
+        markers: places,
+        markerStyle: {
+          initial: { r: 5, fill: '#0759a5', stroke: '#ffffff', strokeWidth: 1.6 },
+          hover: { fill: '#004783', stroke: '#ffffff' }
+        },
+        regionStyle: {
+          initial: { fill: '#d7dde0', stroke: '#f7f5f0', strokeWidth: 0.65 },
+          hover: { fill: '#c5cdd1', fillOpacity: 1 }
+        },
+        onMarkerTooltipShow: (_event, tooltip, index) => {
+          const place = places[index];
+          if (place) tooltip.text(`${place.name} — ${place.note}`);
+        }
+      });
+      mapElement.classList.add('is-ready');
+    } catch (_) {
+      mapElement.classList.add('has-error');
+    }
+  }
 })();

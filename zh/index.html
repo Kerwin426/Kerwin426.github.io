@@ -31,6 +31,7 @@
     <script>
       try { document.documentElement.dataset.theme = localStorage.getItem('site-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) { document.documentElement.dataset.theme = 'light'; }
     </script>
+    <link rel="stylesheet" href="/assets/vendor/jsvectormap/jsvectormap.css" />
     <link rel="stylesheet" href="/assets/css/site.css" />
     <script type="application/ld+json">
       {
@@ -56,7 +57,7 @@
           <span>顾凯铭</span>
         </a>
         <nav class="site-nav" data-site-nav aria-label="主导航">
-          <a href="#research">研究方向</a><a href="#selected-publication">代表论文</a><a href="#background">教育经历</a><a href="#contact">联系</a>
+          <a href="#news">动态</a><a href="#selected-publication">代表论文</a><a href="#research">研究方向</a><a href="#experience">经历</a><a href="#footprints">足迹</a>
           <button class="nav-theme-toggle mobile-theme-toggle" type="button" data-theme-toggle data-dark-label="切换至深色模式" data-light-label="切换至浅色模式" aria-label="切换至深色模式" aria-pressed="false"><span>外观</span><span data-theme-label>深色</span></button>
         </nav>
         <div class="nav-actions">
@@ -94,47 +95,90 @@
         </div>
       </section>
 
+      <section class="section section-news" id="news">
+        <div class="container editorial-grid">
+          <header class="section-heading"><span class="section-index">01</span><h2>动态</h2></header>
+          <div class="news-list" aria-label="近期动态">
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+              <time datetime="2025-09">2025.09</time>
+              <p><a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">G2MBCF</a> 发表于 <em>Data &amp; Knowledge Engineering</em> 第 159 卷。</p>
+            </article>
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5M22 10v6"/></svg>
+              <time datetime="2025-09">2025.09</time>
+              <p>进入华南理工大学攻读电子信息硕士学位。</p>
+            </article>
+            <article class="news-row">
+              <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+              <time datetime="2025-06">2025.06</time>
+              <p>获华南理工大学人工智能专业工学学士学位。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-publication" id="selected-publication">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">01</span><h2>代表论文</h2></header>
-          <article class="publication-entry">
-            <p class="publication-meta">2025 · 期刊论文 · Data &amp; Knowledge Engineering</p>
-            <h3>G2MBCF: Enhanced Named Entity Recognition for Sensitive Entities Identification</h3>
-            <p class="authors">Weibin Tian，<strong>Kaiming Gu</strong>，Shihui Xiao，Junbo Zhang，Wei Cui</p>
-            <p class="venue">第 159 卷，文章号 102444</p>
-            <nav class="text-links" aria-label="论文链接"><a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a><a href="https://dblp.org/rec/journals/dke/TianGXZC25.html" target="_blank" rel="noreferrer">DBLP <span aria-hidden="true">↗</span></a><a href="/zh/publications/">论文详情</a></nav>
+          <header class="section-heading"><span class="section-index">02</span><h2>代表论文</h2></header>
+          <article class="publication-entry publication-with-visual">
+            <figure class="publication-figure">
+              <a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer" aria-label="在出版方网站打开 G2MBCF">
+                <img src="/assets/img/g2mbcf-figure2.jpg" alt="G2MBCF 从非结构化文本与知识图谱构建实体关系矩阵并识别敏感实体的方法流程" width="715" height="415" loading="lazy" />
+              </a>
+              <figcaption>图 2 · 方法概览</figcaption>
+            </figure>
+            <div class="publication-copy">
+              <p class="publication-meta">2025 · 期刊论文 · Data &amp; Knowledge Engineering</p>
+              <h3>G2MBCF: Enhanced Named Entity Recognition for Sensitive Entities Identification</h3>
+              <p class="authors">Weibin Tian，<strong>Kaiming Gu</strong>，Shihui Xiao，Junbo Zhang，Wei Cui</p>
+              <p class="venue">第 159 卷，文章号 102444</p>
+              <nav class="text-links" aria-label="论文链接"><a href="https://doi.org/10.1016/j.datak.2025.102444" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a><a href="https://dblp.org/rec/journals/dke/TianGXZC25.html" target="_blank" rel="noreferrer">DBLP <span aria-hidden="true">↗</span></a><a href="/zh/publications/">论文详情</a></nav>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="section" id="research">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">02</span><h2>研究方向</h2></header>
-          <div>
-            <p class="section-intro">我的研究位于多模态推理与生成式视觉的交叉领域。</p>
-            <dl class="research-list">
-              <div><dt>多模态推理</dt><dd>建立语言与空间结构、局部视觉结构之间的对应关系。</dd></div>
-              <div><dt>生成式图像编辑</dt><dd>推断选定图像区域应包含的内容。</dd></div>
-              <div><dt>可控生成</dt><dd>通过明确反馈提升生成结果的可靠性。</dd></div>
-            </dl>
+          <header class="section-heading"><span class="section-index">03</span><h2>研究方向</h2></header>
+          <div class="research-summary">
+            <p class="section-intro">我关注多模态模型如何连接语言、局部视觉意图与空间结构，以支持可控的图像生成与编辑。</p>
+            <p class="interest-line"><span>研究兴趣</span> 多模态大模型 · AIGC · 生成式图像编辑</p>
             <p class="methods-line"><span>方法与工具</span> Python · PyTorch · Diffusers · LoRA</p>
           </div>
         </div>
       </section>
 
-      <section class="section" id="background">
+      <section class="section" id="experience">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">03</span><h2>教育经历</h2></header>
-          <div class="education-list">
-            <article class="education-row"><div><h3>电子信息硕士</h3><p>华南理工大学未来技术学院</p></div><time>2025 — 至今</time></article>
-            <article class="education-row"><div><h3>人工智能工学学士</h3><p>华南理工大学未来技术学院</p></div><time>2021 — 2025</time></article>
+          <header class="section-heading"><span class="section-index">04</span><h2>经历</h2></header>
+          <div class="experience-list">
+            <article class="experience-row"><img src="/assets/img/scut-emblem.png" alt="" width="42" height="42" loading="lazy" /><div><h3>电子信息硕士</h3><p>华南理工大学未来技术学院</p></div><time>2025 — 至今</time></article>
+            <article class="experience-row"><img src="/assets/img/scut-emblem.png" alt="" width="42" height="42" loading="lazy" /><div><h3>人工智能工学学士</h3><p>华南理工大学未来技术学院</p></div><time>2021 — 2025</time></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-footprints" id="footprints">
+        <div class="container editorial-grid">
+          <header class="section-heading"><span class="section-index">05</span><h2>足迹</h2></header>
+          <div>
+            <p class="section-intro">记录求学与旅行中留下印记的地点；未来到访新的城市后，我会继续补充。</p>
+            <div class="travel-map-shell">
+              <div class="travel-map" id="travel-map" data-map-language="zh" data-map-fallback="世界地图暂时无法显示；地点与坐标见下方。" aria-hidden="true"></div>
+              <noscript><p class="map-fallback">交互地图需要 JavaScript；地点与坐标也列在地图下方。</p></noscript>
+            </div>
+            <ul class="location-list" aria-label="地图中的地点">
+              <li><svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>中国广州</strong><small>现居城市 · 北纬 23.1291°，东经 113.2644°</small></span></li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="section" id="contact">
         <div class="container editorial-grid">
-          <header class="section-heading"><span class="section-index">04</span><h2>联系</h2></header>
+          <header class="section-heading"><span class="section-index">06</span><h2>联系</h2></header>
           <div class="contact-copy"><p>欢迎围绕多模态学习、生成式视觉与科研合作进行交流。</p><a class="email-link" href="mailto:gukaiming@mail.scut.edu.cn">gukaiming@mail.scut.edu.cn</a></div>
         </div>
       </section>
@@ -146,6 +190,8 @@
         <p><a href="mailto:gukaiming@mail.scut.edu.cn">gukaiming@mail.scut.edu.cn</a></p>
       </div>
     </footer>
+    <script src="/assets/vendor/jsvectormap/jsvectormap.min.js" defer></script>
+    <script src="/assets/vendor/jsvectormap/world.js" defer></script>
     <script src="/assets/js/site.js" defer></script>
   </body>
 </html>
