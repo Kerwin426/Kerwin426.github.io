@@ -1,8 +1,9 @@
 (() => {
   const root = document.documentElement;
-  const themeButton = document.querySelector('[data-theme-toggle]');
+  const themeButtons = document.querySelectorAll('[data-theme-toggle]');
   const menuButton = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-site-nav]');
+  const chinese = document.documentElement.lang.startsWith('zh');
 
   const setTheme = (theme, persist = false) => {
     root.dataset.theme = theme;
@@ -13,19 +14,23 @@
         // Theme preference remains available for this visit.
       }
     }
-    if (themeButton) {
-      const dark = theme === 'dark';
-      themeButton.setAttribute('aria-pressed', String(dark));
-      themeButton.setAttribute('aria-label', dark ? themeButton.dataset.lightLabel : themeButton.dataset.darkLabel);
-      themeButton.title = dark ? themeButton.dataset.lightLabel : themeButton.dataset.darkLabel;
-    }
+    const dark = theme === 'dark';
+    themeButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? button.dataset.lightLabel : button.dataset.darkLabel);
+      button.title = dark ? button.dataset.lightLabel : button.dataset.darkLabel;
+      const label = button.querySelector('[data-theme-label]');
+      if (label) label.textContent = dark ? (chinese ? '浅色' : 'Light') : (chinese ? '深色' : 'Dark');
+    });
   };
 
-  if (themeButton) {
-    themeButton.addEventListener('click', () => {
+  setTheme(root.dataset.theme || 'light');
+
+  themeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
       setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
     });
-  }
+  });
 
   if (menuButton && nav) {
     menuButton.addEventListener('click', () => {
