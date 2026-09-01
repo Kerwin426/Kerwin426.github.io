@@ -1,0 +1,12 @@
+{
+  "name": "Kaiming Gu Academic Homepage",
+  "short_name": "Kaiming Gu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3ee",
+  "theme_color": "#0759a5",
+  "icons": [
+    {"src": "/assets/img/favicon.png", "sizes": "64x64", "type": "image/png"},
+    {"src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}
+  ]
+}
